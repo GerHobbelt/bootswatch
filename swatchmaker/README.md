@@ -15,6 +15,10 @@ In terminal, navigate to `/bootswatch/swatchmaker/` and run the command `make bo
 ------
 If you haven't before, [install npm](https://npmjs.org/). Next, navigate to `/bootswatch/swatchmaker/bootstrap/` and type `npm install` to locally install Bootstrap dependencies (uglify-js, jshint, recess, connect, hogan.js).
 
+Install recess as a global npm package to make it executable from the command line.
+
+	npm install -g recess
+
 
 4. Customize Bootstrap
 ------
