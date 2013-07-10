@@ -39,6 +39,18 @@ h6 {
 	text-transform: none;
 }
 
+h1, h2, h3, h4, h5, h6{
+	a{
+		cursor: pointer;
+	}
+	a:link{
+		color: inherit;
+	}
+	a:hover{
+		text-decoration: inherit;
+	}
+}
+
 p {
 	margin-bottom: 1em;
 }
@@ -59,10 +71,6 @@ p {
 	.brand {
 
 		text-shadow: none;
-
-		&:hover {
-			color: @linkColorHover;
-		}
 	}
 
 	.navbar-inner {
@@ -71,6 +79,11 @@ p {
 
 	.nav > li > a {
 		text-shadow: none;
+		margin-top: 6px;
+		margin-right: 5px;
+		margin-bottom: 6px;
+		// padding: 18px 15px 18px;
+		padding: 10px 17px 12px;
 	}
 
 	.nav > .active > a,
@@ -143,7 +156,34 @@ div.subnav {
 // NAVIGATION
 // --------------------------------------------------
 
+.nav-tabs{
+	li > a{
+		color: @blue;
+	}
+}
+
 .nav-list {
+	background-color: transparent;
+
+	& > li{
+		padding-bottom: 4px;
+		> a{
+			padding: 11px 18px 13px;
+			background-color: @grayLighter;
+			color: @blue;
+			&:hover{
+				background-color: @blue;
+				color: @white;
+			}
+		}
+	}
+
+	& > .active > a{
+		background-color: @blue;
+		&:hover{
+			background-color: @blue;
+		}
+	}
 
 	& > li > a,
 	& > .active > a,
@@ -152,6 +192,7 @@ div.subnav {
 	}
 
 	.divider {
+		margin-top: 0;
 		background: none;
 		border-bottom: 2px solid @dropdownDividerBottom;
 	}
@@ -159,8 +200,43 @@ div.subnav {
 
 .nav-pills {
 
+	li{
+		a{
+			color: @blue;
+			&:hover{
+				background-color: @blue;
+				color: @white;
+			}
+		}
+		&.disabled a:hover{
+			color: @grayLight;
+		}
+	}
+	.active > a{
+		background-color: @blue;
+		&:hover{
+			background-color: @blue;
+		}
+	}
+
+	.dropdown-toggle .caret{
+		border-top-color: @blue;
+		border-bottom-color: @blue;
+	}
 	.open .dropdown-toggle {
-		background-color: @blueDark;
+		background-color: @white;
+	}
+	div.subnav &{
+		> li{
+			> a{
+				.border-radius(0);
+				margin-top: 0;
+				margin-bottom: 0;
+				&:hover{
+					color: @white;
+				}
+			}
+		}
 	}
 }
 
@@ -220,6 +296,9 @@ div.subnav {
 
 	& > li {
 		text-shadow: none;
+		a{
+			color: @blue;
+		}
 	}
 }
 
@@ -231,15 +310,54 @@ div.subnav {
 	border: none;
 	background-image: none;
 	color: @white;
+	font-weight: bold;
+	text-transform: uppercase;
 	text-decoration: none;
 	text-shadow: none;
 	.box-shadow(none);
 	-webkit-transition: 0.25s;
 	-moz-transition: 0.25s;
 	transition: 0.25s;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: darken(@btnBackground, 10%);
+	&:hover{
+		background-color: darken(@btnBackground, 5%);
+	}
 
+	&.btn-primary{
+		border-bottom-color: darken(@btnPrimaryBackground, 10%);
+		&:hover{
+			background-color: darken(@btnPrimaryBackground, 5%);
+		}
+	}
+	&.btn-info{
+		border-bottom-color: darken(@btnInfoBackground, 10%);
+		&:hover{
+			background-color: darken(@btnInfoBackground, 5%);
+		}
+	}
+	&.btn-warning{
+		border-bottom-color: darken(@btnWarningBackground, 10%);
+		color: @orange;
+		&:hover, &.disabled{
+			color: @orange;
+		}
+		&:hover{
+			background-color: darken(@btnWarningBackground, 3%);
+		}
+	}
 	&.btn-danger {
-		color: @white
+		border-bottom-color: darken(@btnDangerBackground, 10%);
+		&:hover{
+			background-color: darken(@btnDangerBackground, 5%);
+		}
+	}
+	&.btn-inverse{
+		border-bottom-color: darken(@btnInverseBackground, 10%);
+		&:hover{
+			background-color: darken(@btnInverseBackground, 5%);
+		}
 	}
 
 	&:hover,
@@ -299,14 +417,15 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
 	padding: 7px 6px;
-	border: 2px solid #dce4ec;
+	border-width: 2px;
+	border-style: solid;
+	border-width: 0 0 4px 0;
 	text-indent: 1px;
 	.border-radius(@inputBorderRadius);
 	.box-shadow(none);
 	.placeholder(#acb6c0);
 
 	&:focus {
-		border-color: #1abc9c;
 		.box-shadow(none);
 
 	}
@@ -374,28 +493,36 @@ input[type="color"],
 }
 
 .control-group.error,
+.control-group.error input,
 .control-group.error input:focus,
+.control-group.error textarea,
 .control-group.error textarea:focus {
 		border-color: #e74c3c;
 		.box-shadow(none);
 }
 
 .control-group.success,
+.control-group.success input,
 .control-group.success input:focus,
+.control-group.success textarea,
 .control-group.success textarea:focus {
 		border-color: #2ecc71;
 		.box-shadow(none);
 }
 
 .control-group.warning,
+.control-group.warning input,
 .control-group.warning input:focus,
+.control-group.warning textarea,
 .control-group.warning textarea:focus {
 		border-color: #f1c40f;
 		.box-shadow(none);
 }
 
 .control-group.info,
+.control-group.info input,
 .control-group.info input:focus,
+.control-group.info textarea,
 .control-group.info textarea:focus {
 		border-color: #3498db;
 		.box-shadow(none);
@@ -423,7 +550,6 @@ legend {
 .form-actions {
 	border-top: none;
 	.border-radius(@baseBorderRadius);
-	background-color: darken(@grayLighter, 5%);
 }
 
 // DROPDOWNS
@@ -434,16 +560,21 @@ legend {
 // --------------------------------------------------
 
 .alert {
-	background-color: @orange;
-	color: @white;
+	background-color: @yellow;
+	color: @orange;
 	text-shadow: none;
 
-	h1, h2, h3, h4, h5, h6 {
+	// h1, h2, h3, h4, h5, h6 {
+	// 	color: @white;
+	// }
+
+	&-error, &-success, &-info{
 		color: @white;
 	}
 
 	&-error {
 		background-color: @red;
+		color: @white;
 	}
 
 	&-success {
@@ -464,6 +595,11 @@ legend {
 	padding: 6px 10px;
 	.border-radius(@borderRadiusLarge);
 	text-shadow: none;
+}
+
+.label-warning, .badge-warning{
+	background-color: @yellow;
+	color: @orange;
 }
 
 

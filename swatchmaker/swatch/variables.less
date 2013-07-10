@@ -12,8 +12,8 @@
 @grayDarker:            rgb(85,85,85);
 @grayDark:              rgb(51,51,51);
 @gray:                  rgb(153,153,153);
-@grayLight:             rgb(238,238,238);
-@grayLighter:           rgb(203,203,203);
+@grayLight:             rgb(203,203,203);
+@grayLighter:           rgb(238,238,238);
 @white:                 rgb(255,255,255);
 
 
@@ -22,7 +22,7 @@
 @blue:                  rgb(21,165,219);
 @blueDark:              #2C3E50; // not done
 @green:                 rgb(106,195,57);
-@red:                   #E74C3C; // not done
+@red:                   @pink; // not done
 @yellow:                #ffd900;
 @orange:                #b27506;
 @pink:                  rgb(240,21,88);
@@ -37,8 +37,8 @@
 
 // Links
 // -------------------------
-@linkColor:             @pink;
-@linkColorHover:        lighten(@linkColor, 5%);
+@linkColor:             @blue;
+@linkColorHover:        @blue;
 
 
 // Typography
@@ -47,9 +47,9 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          15px;
+@baseFontSize:          16px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        20px;
+@baseLineHeight:        24px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
@@ -77,17 +77,17 @@
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
-@tableBackgroundAccent:             #f9f9f9; // for striping
-@tableBackgroundHover:              #f5f5f5; // for hover
-@tableBorder:                       #ddd; // table and cell border
+@tableBackgroundAccent:             @grayLighter; // for striping
+@tableBackgroundHover:              lighten(@grayLighter, 4%); // for hover
+@tableBorder:                       @grayLight; // table and cell border
 
 // Buttons
 // -------------------------
-@btnBackground:                     @grayLight;
+@btnBackground:                     @btnSuccessBackground;
 @btnBackgroundHighlight:            lighten(@btnBackground, 10%);
 @btnBorder:                         #ddd;
 
-@btnPrimaryBackground:              @textColor;
+@btnPrimaryBackground:              @btnDangerBackground;
 @btnPrimaryBackgroundHighlight:     lighten(@btnPrimaryBackground, 10%);
 
 @btnInfoBackground:                 @blue;
@@ -96,7 +96,7 @@
 @btnSuccessBackground:              @green;
 @btnSuccessBackgroundHighlight:     lighten(@btnSuccessBackground, 10%);
 
-@btnWarningBackground:              @orange;
+@btnWarningBackground:              @yellow;
 @btnWarningBackgroundHighlight:     lighten(@btnWarningBackground, 10%);
 
 @btnDangerBackground:               @red;
@@ -108,11 +108,11 @@
 
 // Forms
 // -------------------------
-@inputBackground:               @white;
-@inputBorder:                   #dce4ec;
+@inputBackground:               @grayLighter;
+@inputBorder:                   @grayLight;
 @inputBorderRadius:             @baseBorderRadius;
-@inputDisabledBackground:       #eaeded;
-@formActionsBackground:         #f5f5f5;
+@inputDisabledBackground:       lighten(@grayLighter, 5%);
+@formActionsBackground:         transparent;
 @inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
 
 
@@ -179,17 +179,17 @@
 @navbarCollapseWidth:             979px;
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
-@navbarHeight:                    50px;
-@navbarBackgroundHighlight:       @textColor;
-@navbarBackground:                @textColor;
-@navbarBorder:                    darken(@navbarBackground, 5%);
+@navbarHeight:                    60px;
+@navbarBackgroundHighlight:       @navbarBackground;
+@navbarBackground:                @black;
+@navbarBorder:                    transparent;
 
 @navbarText:                      @white;
-@navbarLinkColor:                 @white;
-@navbarLinkColorHover:            @linkColor;
-@navbarLinkColorActive:           @linkColor;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkColor:                 @navbarText;
+@navbarLinkColorHover:            @navbarText;
+@navbarLinkColorActive:           @navbarText;
+@navbarLinkBackgroundHover:       @pink;
+@navbarLinkBackgroundActive:      @navbarLinkBackgroundHover;
 
 @navbarBrandColor:                @navbarLinkColor;
 
@@ -229,8 +229,8 @@
 
 // Form states and alerts
 // -------------------------
-@warningText:             @yellow;
-@warningBackground:       desaturate(lighten(@yellow,45%),30%);
+@warningText:             @orange; // @yellow;
+@warningBackground:       @yellow; // desaturate(lighten(@yellow,45%),30%);
 @warningBorder:           transparent;
 
 @errorText:               @red;
