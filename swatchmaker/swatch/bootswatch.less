@@ -9,34 +9,44 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800&subset=latin-ext);
 
 h1 {
-	font-size: 48px;
-	font-weight: 900;
+	font-size: 36px;
+	font-weight: 800;
+	color: @blue;
 }
 
 h2 {
-	font-size: 36px;
+	font-size: 24px;
 	font-weight: 700;
+	color: @blue;
 }
 
 h3 {
-	font-size: 28px;
-	font-weight: 700;
+	padding-bottom: 3px;
+	border-bottom: 4px solid @grayLighter;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 22px;
+	text-transform: uppercase;
+	color: @black;
 }
 
 h4 {
-	font-size: 24px;
-	font-weight: 500;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 22px;
+	color: @grayDarker;
 }
 
 h5 {
+	padding-bottom: 1px;
+	border-bottom: 1px solid @grayLighter;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 h6 {
-	font-size: 13px;
-	font-weight: 500;
-	text-transform: none;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -325,39 +335,31 @@ div.subnav {
 		background-color: darken(@btnBackground, 5%);
 	}
 
-	&.btn-primary{
-		border-bottom-color: darken(@btnPrimaryBackground, 10%);
+	.btn-style(@btnColor){
+		border-bottom-color: darken(@btnColor, 10%);
 		&:hover{
-			background-color: darken(@btnPrimaryBackground, 5%);
+			background-color: darken(@btnColor, 5%);
 		}
+	}
+
+	&.btn-primary{
+		.btn-style(@btnPrimaryBackground);
 	}
 	&.btn-info{
-		border-bottom-color: darken(@btnInfoBackground, 10%);
-		&:hover{
-			background-color: darken(@btnInfoBackground, 5%);
-		}
+		.btn-style(@btnInfoBackground);
 	}
 	&.btn-warning{
-		border-bottom-color: darken(@btnWarningBackground, 10%);
+		.btn-style(@btnWarningBackground);
 		color: @orange;
 		&:hover, &.disabled{
 			color: @orange;
 		}
-		&:hover{
-			background-color: darken(@btnWarningBackground, 3%);
-		}
 	}
 	&.btn-danger {
-		border-bottom-color: darken(@btnDangerBackground, 10%);
-		&:hover{
-			background-color: darken(@btnDangerBackground, 5%);
-		}
+		.btn-style(@btnDangerBackground);
 	}
 	&.btn-inverse{
-		border-bottom-color: darken(@btnInverseBackground, 10%);
-		&:hover{
-			background-color: darken(@btnInverseBackground, 5%);
-		}
+		.btn-style(@btnInverseBackground);
 	}
 
 	&:hover,
@@ -390,6 +392,14 @@ div.subnav {
 	&-mini {
 		padding: @paddingMini;
 	}
+
+	[class^="icon-"], [class*=" icon-"]{
+		margin-top: 4px;
+	}
+
+	.caret{
+		border-top-color: @white;
+	}
 }
 
 // TABLES
@@ -416,10 +426,11 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-	padding: 7px 6px;
+	padding: 9px 6px;
 	border-width: 2px;
 	border-style: solid;
 	border-width: 0 0 4px 0;
+	color: @grayDark;
 	text-indent: 1px;
 	.border-radius(@inputBorderRadius);
 	.box-shadow(none);
@@ -427,7 +438,7 @@ input[type="color"],
 
 	&:focus {
 		.box-shadow(none);
-
+		border-bottom-color: darken(@inputBorder, 10%);
 	}
 }
 
