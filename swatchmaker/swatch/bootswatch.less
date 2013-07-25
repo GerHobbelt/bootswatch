@@ -9,18 +9,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800&subset=latin-ext);
 
 h1 {
-	font-size: 36px;
-	font-weight: 800;
-	color: @blue;
-}
-
-h2 {
+	// font-size: 36px;
+	// font-weight: 800;
+	// color: @blue;
 	font-size: 24px;
 	font-weight: 700;
 	color: @blue;
 }
 
-h3 {
+h2 {
 	padding-bottom: 3px;
 	border-bottom: 4px solid @grayLighter;
 	font-size: 16px;
@@ -30,23 +27,28 @@ h3 {
 	color: @black;
 }
 
-h4 {
+h3 {
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 22px;
 	color: @grayDarker;
 }
 
+h4 {
+	// padding-bottom: 1px;
+	// border-bottom: 1px solid @grayLighter;
+	font-size: 16px;
+	// font-weight: 400;
+	font-weight: bold;
+}
+
 h5 {
-	padding-bottom: 1px;
-	border-bottom: 1px solid @grayLighter;
 	font-size: 16px;
 	font-weight: 400;
 }
 
 h6 {
-	font-size: 16px;
-	font-weight: 400;
+	
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -63,6 +65,15 @@ h1, h2, h3, h4, h5, h6{
 
 p {
 	margin-bottom: 1em;
+}
+
+a{
+	&:link{
+		text-decoration: underline;
+	}
+	&:hover{
+		text-decoration: none;
+	}
 }
 
 // SCAFFOLDING
@@ -169,6 +180,7 @@ div.subnav {
 .nav-tabs{
 	li > a{
 		color: @blue;
+		text-decoration: none;
 	}
 }
 
@@ -181,6 +193,7 @@ div.subnav {
 			padding: 11px 18px 13px;
 			background-color: @grayLighter;
 			color: @blue;
+			text-decoration: none;
 			&:hover{
 				background-color: @blue;
 				color: @white;
@@ -213,6 +226,7 @@ div.subnav {
 	li{
 		a{
 			color: @blue;
+			text-decoration: none;
 			&:hover{
 				background-color: @blue;
 				color: @white;
@@ -257,25 +271,23 @@ div.subnav {
 		.box-shadow(none);
 
 		& > li > a {
-			background-color: @green;
 			border-color: transparent;
-			color: @white;
+			color: @textColor;
 
 			&:hover {
-				background-color: lighten(@green, 10%);
+				background-color: @paginationActiveBackground;
+				color: @white;
 			}
 		}
 
 		& > .active > a,
 		& > .active > a:hover {
 			background-color: @paginationActiveBackground;
-			color: @textColor;
+			color: @white;
 		}
 
 		& > .disabled > a,
 		& > .disabled > a:hover {
-			background-color: lighten(@green, 10%);
-			color: @white;
 		}
 	}
 }
@@ -284,12 +296,10 @@ div.subnav {
 
 	li > a,
 	li > span {
-		background-color: @green;
 		border: none;
-		color: @white;
 
 		&:hover {
-			background-color: lighten(@green, 10%);
+			background-color: transparent;
 		}
 	}
 
@@ -297,8 +307,8 @@ div.subnav {
 	.disabled > span,
 	.disabled > a:hover,
 	.disabled > span:hover {
-		background-color: lighten(@green, 10%);
-		color: @white;
+		color: lighten(@linkColor, 20%);
+		text-decoration: none;
 	}
 }
 
@@ -308,6 +318,7 @@ div.subnav {
 		text-shadow: none;
 		a{
 			color: @blue;
+			text-decoration: none;
 		}
 	}
 }
@@ -331,6 +342,9 @@ div.subnav {
 	border-bottom-width: 4px;
 	border-bottom-style: solid;
 	border-bottom-color: darken(@btnBackground, 10%);
+	&:link{
+		text-decoration: none;
+	}
 	&:hover{
 		background-color: darken(@btnBackground, 5%);
 	}
@@ -398,6 +412,7 @@ div.subnav {
 	}
 
 	.caret{
+		margin-top: 10px;
 		border-top-color: @white;
 	}
 }
@@ -440,6 +455,10 @@ input[type="color"],
 		.box-shadow(none);
 		border-bottom-color: darken(@inputBorder, 10%);
 	}
+}
+
+select{
+	color: @grayDark;
 }
 
 .input-prepend {
