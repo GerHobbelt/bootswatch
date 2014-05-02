@@ -4,7 +4,7 @@
   "version": "3.1.1-superhero",
   "author": "Thomas Park",
   "homepage": "http://bootswatch.com",
-  "main": "./journal/bootstrap.min.css",
+  "main": "./lumen/bootstrap.min.css",
   "repository": {
     "type": "git",
     "url": "git://github.com/thomaspark/bootswatch.git"
