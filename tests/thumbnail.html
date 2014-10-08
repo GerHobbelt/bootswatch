@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootswatch: Default Bootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../amelia/bootstrap.css" media="screen" id="stylesheet">
+    <title>Bootswatch: Default Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../default/bootstrap.css" media="screen" id="stylesheet">
     <link rel="stylesheet" href="../assets/css/bootswatch.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -72,8 +72,8 @@
       <div class="row">
         <div class="col-12">
           <div class="page-header">
-            <h1 id="theme">Amelia</h1>
-            <p id="description" class="lead">Sweet and cheery</p>
+            <h1 id="theme">Default</h1>
+            <p id="description" class="lead">Basic Bootstrap</p>
             <div class="bs-example">
               <button type="button" class="btn btn-default">Default</button>
               <button type="button" class="btn btn-primary">Primary</button>
@@ -95,10 +95,10 @@
 
       $.get("http://api.bootswatch.com/3/", function (data) {
           var menuTemplate = "<div id='menu' style='position:fixed;top:10px;right:10px;'><select>{{#.}}<option data-description='{{description}}'>{{name}}</option>{{/.}}</select></div>",
-              menuHTML = Mustache.render(menuTemplate, data.themes);     
+              menuHTML = Mustache.render(menuTemplate, data.themes);
 
           $('body').append(menuHTML);
-                        
+
           $('#menu').change(function(){
             var theme = $('#menu :selected');
             $('#theme').text(theme.text());
